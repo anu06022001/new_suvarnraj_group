@@ -4,6 +4,8 @@ import 'package:new_suvarnraj_group/pages/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
+//hi
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
