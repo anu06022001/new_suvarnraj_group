@@ -10,6 +10,7 @@ import 'package:new_suvarnraj_group/models/booking_model.dart';
 import 'package:new_suvarnraj_group/services/notification_service.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:sizer/sizer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BillingDetailsPage extends StatefulWidget {
   final Map<String, dynamic> billingData;
@@ -48,6 +49,30 @@ class _BillingDetailsPageState extends State<BillingDetailsPage> {
   String? selectedArea;
   final List<String> times = ["09:00 AM", "12:00 PM", "03:00 PM", "06:00 PM"];
   final List<String> areas = ["Downtown", "City Center", "Suburbs", "Others"];
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData(); // load saved info when page opens
+  }
+
+
+  Future<void> _loadUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final fullName = prefs.getString("name") ?? "";
+    final email = prefs.getString("email") ?? "";
+    final phone = prefs.getString("phone") ?? "";
+
+    // Split full name into first and last name automatically
+    final parts = fullName.trim().split(' ');
+    firstNameController.text = parts.isNotEmpty ? parts.first : "";
+    lastNameController.text = parts.length > 1 ? parts.sublist(1).join(' ') : "";
+
+    emailController.text = email;
+    phoneController.text = phone;
+
+    setState(() {}); // refresh UI
+  }
 
   @override
   void dispose() {
