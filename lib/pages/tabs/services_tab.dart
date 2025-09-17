@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_suvarnraj_group/pages/flat_details_page.dart';
 import 'package:sizer/sizer.dart';
 
 import 'package:new_suvarnraj_group/controller/home_page_controller.dart';
@@ -116,14 +117,13 @@ class _AnimatedServiceCardState extends State<_AnimatedServiceCard> {
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         child: GestureDetector(
-          onTap: () {
-            final controller = Get.find<HomePageController>();
-            if (widget.title == "Flats") {
-              controller.changeTab(5);
-            } else {
-              Get.to(() => EnquiryFormPage(serviceName: widget.title));
-            }
-          },
+            onTap: () {
+              if (widget.title == "Flats") {
+                Get.to(() => const FlatDetailsPage()); // ✅ push page onto stack
+              } else {
+                Get.to(() => EnquiryFormPage(serviceName: widget.title));
+              }
+            },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(3.w),

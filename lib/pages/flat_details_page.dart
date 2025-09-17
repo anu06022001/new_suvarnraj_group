@@ -199,14 +199,18 @@ class FlatDetailsPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      final homeController = Get.find<HomePageController>();
+
                       if (title == "Furnished Flats") {
-                        Get.find<HomePageController>()
-                            .changeTab(HomePageTabs.furnishedFlat);
+                        homeController.changeTab(HomePageTabs.furnishedFlat);
                       } else if (title == "Unfurnished Flats") {
-                        Get.find<HomePageController>()
-                            .changeTab(HomePageTabs.unfurnishedFlat);
+                        homeController.changeTab(HomePageTabs.unfurnishedFlat);
                       }
+
+                      // ✅ Close FlatDetailsPage and go back to HomePage
+                      Get.back();
                     },
+
                     child: Text(
                       "EXPLORE NOW",
                       style: TextStyle(
