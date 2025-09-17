@@ -1,3 +1,5 @@
+//home pages
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_suvarnraj_group/controller/home_page_controller.dart';
@@ -255,3 +257,4 @@ class HomePage extends StatelessWidget {
     ));
   }
 }
+
