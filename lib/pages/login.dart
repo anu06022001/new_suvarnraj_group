@@ -1,10 +1,4 @@
 // hi
-// anmol
-// gauri
-//ajay
-//ajay2
-//anmol2
-//anmol 3
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
